@@ -12,42 +12,26 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
- * This utility class provides functions which allow create and initialize collections in one line.
+ * This utility class provides functions which allow to create and initialize collections in one line.
  * <p/>
- * Supports 5 types of collections:
- * <ul>
+ * Five types of collections are supported:
+ * <ol>
  * <li>{@link List}</li>
  * <li>{@link Map}</li>
  * <li>{@link Set}</li>
  * <li>{@link Queue}</li>
  * <li>{@link Collection}</li>
- * </ul>
+ * </ol>
  * <p/>
- * All methods returns collections which can be used through standard interfaces.
- * <p/>
- * Returned collections are not synchronized.
- * <p/>
- * The main intent of this class is to provide handy methods. Performance is not a goal.
- * So using these functions is appropriate in test code, not in production.
- *
- * @author flaz14
- * @version 1.0
- * @see List
- * @see Set
- * @see Queue
- * @see Map
- * @see MapBuilder
- * @since 1.0
+ * The intent of this class is to provide handy methods. Performance, thread safety, etc are not a goals. So use these
+ * functions in test code only, not in production.
  */
 public class Builders {
 
     /**
-     * Creates empty list.
+     * Creates empty list. But returned list is not equal to the {@link java.util.Collections#emptyList()}.
      * <p/>
-     * Such list is not equal to the {@link java.util.Collections#emptyList()}.
      * Items can be added to the list later.
-     *
-     * @param <T> type of the list items.
      */
     public static <T> List<T> list() {
         return new ArrayList<T>();
@@ -56,30 +40,20 @@ public class Builders {
     /**
      * Creates list which contains given items.
      * <p/>
-     * Items in the list appear in the same order as in parameters.
-     * More items can be added to the list later.
+     * Items in the list appear in the same order as in parameters. More items can be added to the list later.
      * <p/>
      * Usage scenario of this method:
-     * <pre>
-     * {@code
-     *      List<Integer> list = list(1, 2, 3); // we have list with 3 items here }
-     * </pre>
-     *
-     * @param items items of the list
-     * @param <T>   type of the items in the list
+     * <code>
+     * List<Integer> list = list(1, 2, 3); // we have list with 3 items here
+     * </code>
      */
     public static <T> List<T> list(final T... items) {
         return new ArrayList<T>(Arrays.asList(items));
     }
 
     /**
-     * Creates empty set.
-     * <p/>
-     * Such set is not equal to the {@link java.util.Collections#emptySet()}.
+     * Creates empty set. But returned set is not equal to the {@link java.util.Collections#emptySet()}.
      * Items can be added to the set later.
-     * Created set is not sorted.
-     *
-     * @param <T> type of the items in the set
      */
     public static <T> Set<T> set() {
         return new HashSet<T>();
@@ -88,59 +62,44 @@ public class Builders {
     /**
      * Creates set which contains given items.
      * <p/>
-     * Created set is not sorted. It is no guarantee that order of items in the
-     * result set will be the same as in parameters.
+     * Created set is not sorted. There is not guarantee that order of items in the
+     * result set will be the same as the order of parameters.
      * <p/>
      * Usage scenario of this method:
-     * <pre>
-     * {@code
-     *      Set<Integer> set = set(1, 2, 3); // we have set with three items here }
-     * </pre>
-     *
-     * @param items items of the set
-     * @param <T>   type of items in the set
+     * <code>
+     * Set<Integer> set = set(1, 2, 3); // we have set with three items here
+     * </code>
      */
     public static <T> Set<T> set(final T... items) {
         return new HashSet<T>(Arrays.asList(items));
     }
 
     /**
-     * Creates empty queue.
-     * <p/>
-     * Items can be added to the queue later.
+     * Creates empty queue. Items can be added to the queue later.
      * Note that created queue doesn't guarantee any specific
-     * order of items peeking.
-     *
-     * @param <T> type of items in the queue.
+     * order when items have to be peaked.
      */
     public static <T> Queue<T> queue() {
         return new ArrayDeque<T>();
     }
 
     /**
-     * Creates queue which contains given items.
-     * <p/>
-     * More items can be added to the queue later.
-     * Note that created queue doesn't guarantee any specific
-     * order of peeking items. So the order in which items
-     * will be picked from the queue can differ from the order
-     * of items in parameters.
+     * Creates queue which contains given items. More items can be added to the queue later. Note that created queue
+     * doesn't guarantee any specific order of peeking items. So the order in which items will be picked from the queue
+     * can differ from the order of items in parameters.
      * <p/>
      * Usage scenario of this method:
-     * <pre>
-     * {@code
-     *      Queue<Integer> queue = queue(1, 2, 3); // we have queue with three items here }
-     * </pre>
-     *
-     * @param items items of the queue
-     * @param <T>   type of items in the queue
+     * <code>
+     * Queue<Integer> queue = queue(1, 2, 3); // we have queue with three items here
+     * </code>
      */
     public static <T> Queue<T> queue(final T... items) {
         return new ArrayDeque<T>(Arrays.asList(items));
     }
 
     /**
-     * Creates empty map; items can be added later by calling {@code entry(key, value)} method.
+     * Creates empty map; items can be added later by calling
+     * {@link litenew.Builders.MapBuilder#entry(java.lang.Object, java.lang.Object)} method.
      * <p/>
      * Usage scenario of this method:
      * <pre>
@@ -160,7 +119,6 @@ public class Builders {
      *
      * @param <K> type of the keys in the map
      * @param <V> type of the values in the map
-     * @see MapBuilder#entry(Object, Object)
      */
     public static <K, V> MapBuilder<K, V> map() {
         return new MapBuilder<K, V>();
@@ -172,12 +130,6 @@ public class Builders {
      *
      * @param <K> type of the keys in the map
      * @param <V> type of the values in the map
-     * @author flaz14
-     * @version 1.0
-     * @see Builders
-     * @see Map
-     * @see HashMap
-     * @since 1.0
      */
     public static class MapBuilder<K, V> extends HashMap<K, V> {
 
@@ -186,7 +138,7 @@ public class Builders {
          * previously pushed entries and new one.
          * <p/>
          * The object on which method called doesn't change.
-         * On each {@code entry()} call new {@link MapBuilder} instance
+         * On each call of this method new {@link MapBuilder} instance
          * created and returned as result.
          * The result map contains all items including new one.
          *
@@ -194,8 +146,6 @@ public class Builders {
          * @param value value of the entry
          * @param <K>   type of the key
          * @param <V>   type of the value
-         * @return new map object which contains all entries of old map and
-         * new entry specified by key and value.
          */
         public <K, V> MapBuilder<K, V> entry(final K key, final V value) {
             // copy all values from this map into the new map
@@ -224,10 +174,7 @@ public class Builders {
     }
 
     /**
-     * Creates empty collection.
-     * Items can be added to created collection later.
-     *
-     * @param <T> type of the items in collection
+     * Creates empty collection. Items can be added to created collection later.
      */
     public static <T> Collection<T> collection() {
         return new ArrayList<T>();
