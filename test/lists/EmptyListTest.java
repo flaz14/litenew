@@ -10,35 +10,40 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * @author flaz14
- */
 public class EmptyListTest {
+
     @Test
-    public void emptyListNotNull() throws Exception {
+    public void whenEmptyListIsCreated_itIsNotNull() throws Exception {
         final List<String> emptyList = list();
+
         assertNotNull(emptyList);
     }
 
     @Test
-    public void emptyListIsReallyEmpty() throws Exception {
+    public void whenEmptyListIsCreated_itIsReallyEmpty() throws Exception {
         final List<String> emptyList = list();
-        assertTrue(emptyList.isEmpty());
+
+        assertThat(emptyList.size(), is(0));
     }
 
     @Test
-    public void emptyListHaveToBeGeneric() throws Exception {
-        final List<String> stringList = list();
-        assertNotNull(stringList);
-        final List<String> integerList = list();
-        assertNotNull(integerList);
-    }
-
-    @Test
-    public void moreItemsCanBeAddedToTheEmptyList() throws Exception {
+    public void moreItemsCanBeAddedIntoTheEmptyList() throws Exception {
         final List<String> emptyList = list();
+
         emptyList.add("String 1");
+
         assertThat(emptyList.size(), is(1));
+    }
+
+    @Test
+    public void emptyListIsGeneric() throws Exception {
+        final List<String> stringList = list();
+        final List<String> integerList = list();
+        final List<Boolean> booleanList = list();
+
+        assertNotNull(stringList);
+        assertNotNull(integerList);
+        assertNotNull(booleanList);
     }
 }
 

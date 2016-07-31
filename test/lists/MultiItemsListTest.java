@@ -12,38 +12,30 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author flaz14
- */
 public class MultiItemsListTest {
+
     @Test
-    public void integerListsAreEqual() throws Exception {
+    public void equalityExample_forIntegerList() throws Exception {
         final List<Integer> ordinaryList = new ArrayList<Integer>();
         ordinaryList.add(1);
         ordinaryList.add(2);
         ordinaryList.add(3);
 
-        final List<Integer> actualList = list(1, 2, 3);
-        assertEquals(ordinaryList, actualList);
+        final List<Integer> testList = list(1, 2, 3);
+
+        assertThat(testList, is(ordinaryList));
     }
 
     @Test
-    public void stringListsAreEqual() throws Exception {
+    public void equalityExample_forStringList() throws Exception {
         final List<String> ordinaryList = new ArrayList<String>();
         ordinaryList.add("String 1");
         ordinaryList.add("String 2");
         ordinaryList.add("String 3");
 
-        final List<String> actualList = list("String 1", "String 2", "String 3");
-        assertEquals(ordinaryList, actualList);
-    }
+        final List<String> testList = list("String 1", "String 2", "String 3");
 
-    @Test
-    public void multiItemListHaveToBeGeneric() throws Exception {
-        final List<String> stringList = list("String 1", "String 2", "String 3");
-        assertNotNull(stringList);
-        final List<Integer> integerList = list(1, 2, 3);
-        assertNotNull(integerList);
+        assertThat(testList, is(ordinaryList));
     }
 
     @Test
@@ -63,5 +55,16 @@ public class MultiItemsListTest {
         assertThat(firstItem, is("String 1"));
         assertThat(secondItem, is("String 2"));
         assertThat(thirdItem, is("String 3"));
+    }
+
+    @Test
+    public void multipleItemsListIsGeneric() throws Exception {
+        final List<String> stringList = list("String 1", "String 2", "String 3");
+        final List<Integer> integerList = list(1, 2, 3);
+        final List<Boolean> booleanList = list(true, false, true);
+
+        assertNotNull(stringList);
+        assertNotNull(integerList);
+        assertNotNull(booleanList);
     }
 }

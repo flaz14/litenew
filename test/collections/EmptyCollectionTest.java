@@ -10,34 +10,38 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * @author flaz14
- */
 public class EmptyCollectionTest {
+
     @Test
-    public void emptyCollectionIsNotNull() throws Exception {
+    public void whenEmptyCollectionIsCreated_itIsNotNull() throws Exception {
         final Collection<String> emptyCollection = collection();
+
         assertNotNull(emptyCollection);
     }
 
     @Test
-    public void emptyCollectionIsReallyEmpty() throws Exception {
+    public void whenEmptyCollectionIsCreated_itIsReallyEmpty() throws Exception {
         final Collection<String> emptyCollection = collection();
-        assertTrue(emptyCollection.isEmpty());
+
+        assertTrue("Empty collection is expected", emptyCollection.isEmpty());
     }
 
     @Test
-    public void emptyCollectionHaveToBeGeneric() throws Exception {
-        final Collection<String> stringCollection = collection();
-        assertNotNull(stringCollection);
-        final Collection<Integer> integerCollection = collection();
-        assertNotNull(integerCollection);
-    }
-
-    @Test
-    public void itemsCanBeAddedToTheEmptyCollection() throws Exception {
+    public void itemsCanBeAddedIntoEmptyCollection() throws Exception {
         final Collection<String> emptyCollection = collection();
         emptyCollection.add("String 1");
+
         assertThat(emptyCollection.size(), is(1));
+    }
+
+    @Test
+    public void emptyCollectionIsGeneric() throws Exception {
+        final Collection<String> stringCollection = collection();
+        final Collection<Integer> integerCollection = collection();
+        final Collection<Boolean> booleanCollection = collection();
+
+        assertNotNull(stringCollection);
+        assertNotNull(integerCollection);
+        assertNotNull(booleanCollection);
     }
 }

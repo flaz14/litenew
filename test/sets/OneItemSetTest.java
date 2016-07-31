@@ -9,41 +9,48 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author flaz14
- */
 public class OneItemSetTest {
+
     @Test
-    public void oneItemSetIsNotNull() throws Exception {
+    public void whenOneItemSetIsCreated_itIsNotNull() throws Exception {
         final Set<String> oneItemSet = set("A");
+
         assertNotNull(oneItemSet);
     }
 
     @Test
-    public void oneItemSetContainsExactlyOneItem() throws Exception {
+    public void whenOneItemSetIsCreated_itContainsExactlyOneItem() throws Exception {
         final Set<String> oneItemSet = set("A");
+
         assertThat(oneItemSet.size(), is(1));
     }
 
     @Test
-    public void oneItemSetContainsCertainItem() throws Exception {
+    public void whenOneItemSetIsCreated_itContainsTheSameItemAsSpecifiedByParameter() throws Exception {
         final Set<String> oneItemSet = set("A");
-        final String item = oneItemSet.iterator().next();
-        assertThat(item, is("A"));
-    }
 
-    @Test
-    public void oneItemSetHaveToBeGeneric() throws Exception {
-        final Set<Integer> integerSet = set(65);
-        assertNotNull(integerSet);
-        final Set<String> stringSet = set("String 1");
-        assertNotNull(stringSet);
+        final String item = oneItemSet.iterator().next();
+
+        assertThat(item, is("A"));
     }
 
     @Test
     public void moreItemsCanBeAddedToTheOneItemSet() throws Exception {
         final Set<String> oneItemSet = set("String 1");
+
         oneItemSet.add("String 2");
+
         assertThat(oneItemSet.size(), is(2));
+    }
+
+    @Test
+    public void oneItemSetIsGeneric() throws Exception {
+        final Set<Integer> integerSet = set(65);
+        final Set<String> stringSet = set("String 1");
+        final Set<Boolean> booleanSet = set(true);
+
+        assertNotNull(integerSet);
+        assertNotNull(stringSet);
+        assertNotNull(booleanSet);
     }
 }

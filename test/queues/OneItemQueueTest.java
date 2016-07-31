@@ -9,41 +9,47 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author flaz14
- */
 public class OneItemQueueTest {
+
     @Test
-    public void oneItemQueueIsNotNull() throws Exception {
+    public void whenOneItemQueueIsCreated_itIsNotNull() throws Exception {
         final Queue<String> oneItemQueue = queue("A");
+
         assertNotNull(oneItemQueue);
     }
 
     @Test
-    public void oneItemQueueContainsExactlyOneItem() throws Exception {
+    public void whenOneItemQueueIsCreated_itContainsExactlyOneItem() throws Exception {
         final Queue<String> oneItemQueue = queue("A");
+
         assertThat(oneItemQueue.size(), is(1));
     }
 
     @Test
-    public void oneItemQueueContainsCertainItem() throws Exception {
+    public void whenOneItemQueueIsCreated_itContainsTheSameItemAsSpecifiedByParameter() throws Exception {
         final Queue<String> oneItemQueue = queue("A");
+
         final String item = oneItemQueue.peek();
         assertThat(item, is("A"));
     }
 
     @Test
-    public void oneItemQueueHaveToBeGeneric() throws Exception {
-        final Queue<String> stringQueue = queue("A");
-        assertNotNull(stringQueue);
-        final Queue<Integer> integerQueue = queue(65);
-        assertNotNull(integerQueue);
+    public void moreItemsCanBeAddedToTheOneItemQueue() throws Exception {
+        final Queue<String> oneItemQueue = queue("String 1");
+
+        oneItemQueue.add("String 2");
+
+        assertThat(oneItemQueue.size(), is(2));
     }
 
     @Test
-    public void moreItemsCanBeAddedToTheOneItemQueue() throws Exception {
-        final Queue<String> oneItemQueue = queue("String 1");
-        oneItemQueue.add("String 2");
-        assertThat(oneItemQueue.size(), is(2));
+    public void oneItemQueueIsGeneric() throws Exception {
+        final Queue<String> stringQueue = queue("A");
+        final Queue<Integer> integerQueue = queue(65);
+        final Queue<Character> characterQueue = queue('q');
+
+        assertNotNull(stringQueue);
+        assertNotNull(integerQueue);
+        assertNotNull(characterQueue);
     }
 }

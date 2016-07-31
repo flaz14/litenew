@@ -5,30 +5,35 @@ import org.junit.Test;
 import java.util.Map;
 
 import static litenew.Builders.map;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * @author flaz14
- */
 public class EmptyMapTest {
+
     @Test
-    public void emptyMapIsNotNull() throws Exception {
+    public void whenEmptyMapIsCreated_itIsNotNull() throws Exception {
         final Map<String, Integer> emptyMap = map();
+
         assertNotNull(emptyMap);
     }
 
     @Test
-    public void emptyMapIsReallyEmpty() throws Exception {
+    public void whenEmptyMapIsCreated_itIsReallyEmpty() throws Exception {
         final Map<String, Integer> emptyMap = map();
-        assertTrue(emptyMap.isEmpty());
+
+        assertThat(emptyMap.size(), is(0));
     }
 
     @Test
-    public void emptyMapHaveToBeGeneric() throws Exception {
+    public void emptyMapIsGeneric() throws Exception {
         final Map<String, Integer> stringMap = map();
+        final Map<Integer, Integer> integerMap = map();
+        final Map<Integer, Boolean> mixedMap = map();
+
         assertNotNull(stringMap);
-        final Map<String, Integer> integerMap = map();
         assertNotNull(integerMap);
+        assertNotNull(mixedMap);
     }
 }

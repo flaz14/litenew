@@ -1,8 +1,10 @@
 litenew
 =======
 
-This code is for **Java 6**: create and initialize lists, sets and maps in one line!
+Java is very verbose. There are plenty of libraries (for example, Guava) which help you to write laconic code. And there
+are many cool features in Java 8. So there is nothing new here: just another little wheel for **Java 5** that helps you
+to create and initialize lists, sets and maps in one line.
 
-Single `.java` file, just copy-paste it into your project and write a little bit more laconic test code!
-
-Look at [Builders](https://github.com/flaz14/litenew/blob/master/litenew/src/main/java/com/github/flaz14/litenew/Builders.java) class.
+Look at
+[Builders](https://github.com/flaz14/litenew/blob/master/litenew/src/main/java/com/github/flaz14/litenew/Builders.java)
+class. May be that code will save you some amount of hassle...

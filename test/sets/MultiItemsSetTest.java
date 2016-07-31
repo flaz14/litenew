@@ -11,19 +11,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author flaz14
- */
 public class MultiItemsSetTest {
+
     @Test
-    public void integerSetsAreEqual() throws Exception {
+    public void equalityExample_forIntegerSet() throws Exception {
         final Set<Integer> ordinarySet = new HashSet<Integer>();
         ordinarySet.add(1);
         ordinarySet.add(2);
         ordinarySet.add(3);
 
-        final Set<Integer> set = set(1, 2, 3);
-        assertEquals(ordinarySet, set);
+        final Set<Integer> testSet = set(1, 2, 3);
+
+        assertThat(testSet, is(ordinarySet));
     }
 
     @Test
@@ -33,22 +32,28 @@ public class MultiItemsSetTest {
         ordinarySet.add("String 2");
         ordinarySet.add("String 3");
 
-        final Set<String> set = set("String 1", "String 2", "String 3");
-        assertEquals(ordinarySet, set);
+        final Set<String> testSet = set("String 1", "String 2", "String 3");
+
+        assertThat(testSet, is(ordinarySet));
+    }
+
+    @Test
+    public void moreItemsCanBeAddedToTheMultipleItemsSet() throws Exception {
+        final Set<String> multiItemsSet = set("String 1", "String 2");
+
+        multiItemsSet.add("String 3");
+
+        assertThat(multiItemsSet.size(), is(3));
     }
 
     @Test
     public void multiItemsSetHaveToBeGeneric() throws Exception {
         final Set<String> stringSet = set("String 1", "String 2", "String 3");
-        assertNotNull(stringSet);
         final Set<Integer> integerSet = set(1, 2, 3);
-        assertNotNull(integerSet);
-    }
+        final Set<Boolean> booleanSet = set(true, false);
 
-    @Test
-    public void moreItemsCanBeAddedToTheMultiItemsSet() throws Exception {
-        final Set<String> multiItemsSet = set("String 1", "String 2");
-        multiItemsSet.add("String 3");
-        assertThat(multiItemsSet.size(), is(3));
+        assertNotNull(stringSet);
+        assertNotNull(integerSet);
+        assertNotNull(booleanSet);
     }
 }

@@ -9,9 +9,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author flaz14
- */
 public class MapBuilderTest {
     @Test
     public void entryMethodReturnsNewBuilderInstanceWhenCalled() throws Exception {

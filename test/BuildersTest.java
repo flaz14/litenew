@@ -6,9 +6,6 @@ import org.junit.rules.ExpectedException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-/**
- * @author flaz14
- */
 public class BuildersTest {
 
     @Rule

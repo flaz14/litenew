@@ -10,28 +10,20 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * @author flaz14
- */
 public class EmptyQueueTest {
+
     @Test
-    public void emptyQueueIsNotNull() throws Exception {
+    public void whenEmptyQueueIsCreated_itIsNotNull() throws Exception {
         final Queue<String> emptyQueue = queue();
+
         assertNotNull(emptyQueue);
     }
 
     @Test
-    public void emptyQueueIsReallyEmpty() throws Exception {
+    public void whenEmptyQueueIsCreated_itIsReallyEmpty() throws Exception {
         final Queue<String> emptyQueue = queue();
-        assertTrue(emptyQueue.isEmpty());
-    }
 
-    @Test
-    public void emptyQueueHaveToBeGeneric() throws Exception {
-        final Queue<String> stringQueue = queue();
-        assertNotNull(stringQueue);
-        final Queue<Integer> integerQueue = queue();
-        assertNotNull(integerQueue);
+        assertThat(emptyQueue.size(), is(0));
     }
 
     @Test
@@ -39,5 +31,16 @@ public class EmptyQueueTest {
         final Queue<String> emptyQueue = queue();
         emptyQueue.add("String 2");
         assertThat(emptyQueue.size(), is(1));
+    }
+
+    @Test
+    public void emptyQueueHaveToBeGeneric() throws Exception {
+        final Queue<String> stringQueue = queue();
+        final Queue<Integer> integerQueue = queue();
+        final Queue<Character> characterQueue = queue();
+
+        assertNotNull(stringQueue);
+        assertNotNull(integerQueue);
+        assertNotNull(characterQueue);
     }
 }

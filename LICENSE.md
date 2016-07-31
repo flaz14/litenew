@@ -1,3 +1,6 @@
+MIT-LICENSE
+===========
+
 Copyright (c) 2013 flaz14
 
 Permission is hereby granted, free of charge, to any person obtaining
