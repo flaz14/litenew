@@ -6,5 +6,5 @@ are many cool features in Java 8. So there is nothing new here: just another lit
 to create and initialize lists, sets and maps in one line.
 
 Look at
-[Builders](https://github.com/flaz14/litenew/blob/master/litenew/src/main/java/com/github/flaz14/litenew/Builders.java)
+[Builders](blob/master/main/litenew/Builders.java)
 class. May be that code will save you some amount of hassle...
