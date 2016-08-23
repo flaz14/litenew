@@ -28,12 +28,12 @@ public class EmptyMapTest {
 
     @Test
     public void emptyMapIsGeneric() throws Exception {
-        final Map<String, Integer> stringMap = map();
-        final Map<Integer, Integer> integerMap = map();
-        final Map<Integer, Boolean> mixedMap = map();
+        final Map<String, Integer> stringInteger = map();
+        final Map<Integer, Integer> integerString = map();
+        final Map<Integer, Boolean> integerBoolean = map();
 
-        assertNotNull(stringMap);
-        assertNotNull(integerMap);
-        assertNotNull(mixedMap);
+        assertNotNull(stringInteger);
+        assertNotNull(integerString);
+        assertNotNull(integerBoolean);
     }
 }

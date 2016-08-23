@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Collection;
 
 import static litenew.Builders.collection;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -30,7 +31,7 @@ public class OneItemCollectionTest {
         final Collection<String> oneItemCollection = collection("String 1");
 
         final String item = oneItemCollection.iterator().next();
-        assertThat(item, is("String 1"));
+        assertThat(item, equalTo("String 1"));
     }
 
     @Test

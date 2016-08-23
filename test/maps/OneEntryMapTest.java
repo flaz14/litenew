@@ -37,12 +37,12 @@ public class OneEntryMapTest {
 
     @Test
     public void oneEntryMapIsGeneric() throws Exception {
-        final Map<Integer, String> integerStringMap = map().entry(65, "A");
-        final Map<String, Integer> stringIntegerMap = map().entry("A", 65);
-        final Map<Boolean, String> mixedMap = map().entry(true, "true");
+        final Map<Integer, String> integerString = map().entry(65, "A");
+        final Map<String, Integer> stringInteger = map().entry("A", 65);
+        final Map<Boolean, String> booleanString = map().entry(true, "true");
 
-        assertNotNull(integerStringMap);
-        assertNotNull(stringIntegerMap);
-        assertNotNull(mixedMap);
+        assertNotNull(integerString);
+        assertNotNull(stringInteger);
+        assertNotNull(booleanString);
     }
 }

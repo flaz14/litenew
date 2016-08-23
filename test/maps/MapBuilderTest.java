@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
 
 public class MapBuilderTest {
     @Test
-    public void entryMethodReturnsNewBuilderInstanceWhenCalled() throws Exception {
+    public void entryMethodReturnsNewBuilderInstance_everyTimeItIsCalled() throws Exception {
         final Builders.MapBuilder<Integer, String> firstBuilder = map().entry(1, "String 1");
         final Builders.MapBuilder<Integer, String> secondBuilder = firstBuilder.entry(2, "String 2");
 
@@ -23,7 +23,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void entryMethodDoesNotChangeOriginalBuilder() throws Exception {
+    public void entryMethodDoesNotPutItemIntoOriginalBuilder() throws Exception {
         final Builders.MapBuilder<Integer, String> originalBuilder = map().entry(1, "String 1");
         originalBuilder.entry(2, "String 2");
 

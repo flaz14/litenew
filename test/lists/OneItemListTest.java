@@ -46,7 +46,7 @@ public class OneItemListTest {
     public void oneItemListIsGeneric() throws Exception {
         final List<Integer> integerList = list(65);
         final List<String> stringList = list("String 1");
-        final List<Boolean> booleanList = list(false);
+        final List<Boolean> booleanList = list(true);
 
         assertNotNull(stringList);
         assertNotNull(integerList);

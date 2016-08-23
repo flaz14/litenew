@@ -55,9 +55,9 @@ public class MultiItemsListTest {
         final String secondItem = iterator.next();
         final String thirdItem = iterator.next();
 
-        assertThat(firstItem, is("String 1"));
-        assertThat(secondItem, is("String 2"));
-        assertThat(thirdItem, is("String 3"));
+        assertThat(firstItem, equalTo("String 1"));
+        assertThat(secondItem, equalTo("String 2"));
+        assertThat(thirdItem, equalTo("String 3"));
     }
 
     @Test

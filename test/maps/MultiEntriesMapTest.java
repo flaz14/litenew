@@ -46,21 +46,21 @@ public class MultiEntriesMapTest {
 
     @Test
     public void multipleEntriesMapIsGeneric() throws Exception {
-        final Map<String, Integer> stringIntegerMap = map().
+        final Map<String, Integer> stringInteger = map().
                 entry("A", 65).
                 entry("B", 66).
                 entry("C", 67);
-        final Map<Integer, String> integerStringMap = map().
+        final Map<Integer, String> integerString = map().
                 entry(65, "A").
                 entry(66, "B").
                 entry(67, "C");
-        final Map<Boolean, Character> mixedMap = map().
+        final Map<Boolean, Character> booleanCharacter = map().
                 entry(true, 'a').
                 entry(false, 'b').
                 entry(false, 'c');
 
-        assertNotNull(integerStringMap);
-        assertNotNull(stringIntegerMap);
-        assertNotNull(mixedMap);
+        assertNotNull(integerString);
+        assertNotNull(stringInteger);
+        assertNotNull(booleanCharacter);
     }
 }

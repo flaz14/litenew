@@ -12,7 +12,7 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
- * This utility class provides functions which allow to create and initialize collections in one line.
+ * This utility class provides functions which help to create and initialize collections in one line.
  * <p/>
  * Five types of collections are supported:
  * <ol>
@@ -105,7 +105,7 @@ public class Builders {
         }
 
         /**
-         * Prohibit instantiating of builder outside itself.
+         * Prohibit instantiating builder outside itself.
          */
         private MapBuilder() {
         }
@@ -124,6 +124,6 @@ public class Builders {
     }
 
     private Builders() {
-        throw new UnsupportedOperationException("Creating instances of utility class is prohibited. Use its static methods.");
+        throw new UnsupportedOperationException("Creating instances of utility class is prohibited. Use static methods.");
     }
 }

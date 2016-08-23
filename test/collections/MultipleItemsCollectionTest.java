@@ -42,13 +42,15 @@ public class MultipleItemsCollectionTest {
     public void multipleItemsCollectionIsGeneric() throws Exception {
         final Collection<String> stringCollection = collection("String 1", "String 2", "String 3");
         final Collection<Integer> integerCollection = collection(1, 2, 3);
+        final Collection<Boolean> booleanCollection = collection(true, false, false);
 
         assertNotNull(stringCollection);
         assertNotNull(integerCollection);
+        assertNotNull(booleanCollection);
     }
 
     @Test
-    public void itemsCanBeAdded() throws Exception {
+    public void itemsCanBeAddedLater() throws Exception {
         final Collection<String> multipleItemsCollection = collection("String 1", "String 2");
 
         multipleItemsCollection.add("String 3");
@@ -58,15 +60,16 @@ public class MultipleItemsCollectionTest {
     }
 
     @Test
-    public void itemsAppearsInCollectionInTheSameOrderAsInParameters() throws Exception {
+    public void itemsAppearInCollectionInTheSameOrderAsInParameters() throws Exception {
         final Collection<String> collection = collection("String 1", "String 2", "String 3");
 
         final Iterator<String> iterator = collection.iterator();
         final String firstItem = iterator.next();
         final String secondItem = iterator.next();
         final String thirdItem = iterator.next();
-        assertThat(firstItem, is("String 1"));
-        assertThat(secondItem, is("String 2"));
-        assertThat(thirdItem, is("String 3"));
+
+        assertThat(firstItem, equalTo("String 1"));
+        assertThat(secondItem, equalTo("String 2"));
+        assertThat(thirdItem, equalTo("String 3"));
     }
 }

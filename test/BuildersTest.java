@@ -6,7 +6,8 @@ import org.junit.rules.ExpectedException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import static org.junit.rules.ExpectedException.*;
+import static org.hamcrest.CoreMatchers.isA;
+import static org.junit.rules.ExpectedException.none;
 
 public class BuildersTest {
 
@@ -19,6 +20,7 @@ public class BuildersTest {
         defaultConstructor.setAccessible(true);
 
         expectedException.expect(InvocationTargetException.class);
+        expectedException.expectCause(isA(UnsupportedOperationException.class));
         defaultConstructor.newInstance();
     }
 }
