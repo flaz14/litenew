@@ -8,7 +8,6 @@ import static litenew.Builders.list;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class EmptyListTest {
 
