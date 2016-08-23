@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static litenew.Builders.list;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -29,7 +30,7 @@ public class OneItemListTest {
         final List<String> oneItemList = list("A");
 
         final String item = oneItemList.get(0);
-        assertThat(item, is("A"));
+        assertThat(item, equalTo("A"));
     }
 
     @Test

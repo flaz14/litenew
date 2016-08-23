@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static litenew.Builders.set;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -22,7 +23,7 @@ public class MultiItemsSetTest {
 
         final Set<Integer> testSet = set(1, 2, 3);
 
-        assertThat(testSet, is(ordinarySet));
+        assertThat(testSet, equalTo(ordinarySet));
     }
 
     @Test
@@ -34,7 +35,7 @@ public class MultiItemsSetTest {
 
         final Set<String> testSet = set("String 1", "String 2", "String 3");
 
-        assertThat(testSet, is(ordinarySet));
+        assertThat(testSet, equalTo(ordinarySet));
     }
 
     @Test

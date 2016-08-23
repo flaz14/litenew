@@ -6,6 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 import static litenew.Builders.queue;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -25,7 +26,7 @@ public class MultiItemsQueueTest {
         // equals() from Object class is used.
         // so we don't compare queues itself,
         // but compare arrays which represents each queue.
-        assertThat(testQueue.toArray(), is(ordinaryQueue.toArray()));
+        assertThat(testQueue.toArray(), equalTo(ordinaryQueue.toArray()));
     }
 
     @Test
@@ -37,7 +38,7 @@ public class MultiItemsQueueTest {
 
         final Queue<String> testQueue = queue("String 1", "String 2", "String 3");
 
-        assertThat(testQueue.toArray(), is(ordinaryQueue.toArray()));
+        assertThat(testQueue.toArray(), equalTo(ordinaryQueue.toArray()));
     }
 
     @Test

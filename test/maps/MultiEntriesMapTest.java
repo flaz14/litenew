@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static litenew.Builders.map;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -25,7 +26,7 @@ public class MultiEntriesMapTest {
                 entry(2, "String 2").
                 entry(3, "String 3");
 
-        assertThat(testMap, is(ordinaryMap));
+        assertThat(testMap, equalTo(ordinaryMap));
     }
 
     @Test
@@ -40,7 +41,7 @@ public class MultiEntriesMapTest {
                 entry("String 2", 2).
                 entry("String 3", 3);
 
-        assertThat(testMap, is(ordinaryMap));
+        assertThat(testMap, equalTo(ordinaryMap));
     }
 
     @Test
@@ -54,9 +55,9 @@ public class MultiEntriesMapTest {
                 entry(66, "B").
                 entry(67, "C");
         final Map<Boolean, Character> mixedMap = map().
-                entry(true, new Character('a')).
-                entry(false, new Character('b')).
-                entry(false, new Character('c'));
+                entry(true, 'a').
+                entry(false, 'b').
+                entry(false, 'c');
 
         assertNotNull(integerStringMap);
         assertNotNull(stringIntegerMap);

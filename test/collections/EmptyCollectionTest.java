@@ -8,7 +8,6 @@ import static litenew.Builders.collection;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class EmptyCollectionTest {
 
@@ -23,7 +22,7 @@ public class EmptyCollectionTest {
     public void whenEmptyCollectionIsCreated_itIsReallyEmpty() throws Exception {
         final Collection<String> emptyCollection = collection();
 
-        assertTrue("Empty collection is expected", emptyCollection.isEmpty());
+        assertThat(emptyCollection.size(), is(0));
     }
 
     @Test

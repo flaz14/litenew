@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Queue;
 
 import static litenew.Builders.queue;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -30,7 +31,7 @@ public class OneItemQueueTest {
         final Queue<String> oneItemQueue = queue("A");
 
         final String item = oneItemQueue.peek();
-        assertThat(item, is("A"));
+        assertThat(item, equalTo("A"));
     }
 
     @Test

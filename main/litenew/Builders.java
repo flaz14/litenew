@@ -27,7 +27,7 @@ import java.util.Set;
 public class Builders {
 
     /**
-     * Creates empty list. But returned list is not equal to the {@link java.util.Collections#emptyList()} (items can be
+     * Creates empty list. But returned list is not equal to {@link java.util.Collections#emptyList()} (items can be
      * added to the list later).
      */
     public static <T> List<T> list() {
@@ -39,7 +39,7 @@ public class Builders {
     }
 
     /**
-     * Creates empty set. But returned set is not equal to the {@link java.util.Collections#emptySet()} (items can be
+     * Creates empty set. But returned set is not equal to {@link java.util.Collections#emptySet()} (items can be
      * added to the set later).
      */
     public static <T> Set<T> set() {
@@ -90,7 +90,7 @@ public class Builders {
          */
         public <K, V> MapBuilder<K, V> entry(final K key, final V value) {
             final MapBuilder<K, V> newMap = new MapBuilder<K, V>(key, value);
-            // copy all existing values into new instance of builder.
+            // copy all existing values into new instance of builder
             for (final Map.Entry<?, ?> oldEntry : this.entrySet()) {
                 // When `entry()` is called several times within one chain like `map().entry().entry()...`
                 // we can be sure that all intermediate maps have the same types of parameters. This is why

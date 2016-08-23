@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Set;
 
 import static litenew.Builders.set;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -31,7 +32,7 @@ public class OneItemSetTest {
 
         final String item = oneItemSet.iterator().next();
 
-        assertThat(item, is("A"));
+        assertThat(item, equalTo("A"));
     }
 
     @Test
@@ -40,7 +41,7 @@ public class OneItemSetTest {
 
         oneItemSet.add("String 2");
 
-        assertThat(oneItemSet.size(), is(2));
+        assertThat(oneItemSet.size(), equalTo(2));
     }
 
     @Test

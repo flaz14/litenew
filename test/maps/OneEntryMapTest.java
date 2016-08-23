@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Map;
 
 import static litenew.Builders.map;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -30,8 +31,8 @@ public class OneEntryMapTest {
         final Map<String, Integer> oneEntryMap = map().entry("A", 65);
 
         final Map.Entry<String, Integer> actualEntry = oneEntryMap.entrySet().iterator().next();
-        assertThat(actualEntry.getKey(), is("A"));
-        assertThat(actualEntry.getValue(), is(65));
+        assertThat(actualEntry.getKey(), equalTo("A"));
+        assertThat(actualEntry.getValue(), equalTo(65));
     }
 
     @Test

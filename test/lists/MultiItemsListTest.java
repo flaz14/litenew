@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import static litenew.Builders.list;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -23,7 +24,7 @@ public class MultiItemsListTest {
 
         final List<Integer> testList = list(1, 2, 3);
 
-        assertThat(testList, is(ordinaryList));
+        assertThat(testList, equalTo(ordinaryList));
     }
 
     @Test
@@ -35,7 +36,7 @@ public class MultiItemsListTest {
 
         final List<String> testList = list("String 1", "String 2", "String 3");
 
-        assertThat(testList, is(ordinaryList));
+        assertThat(testList, equalTo(ordinaryList));
     }
 
     @Test
@@ -48,10 +49,12 @@ public class MultiItemsListTest {
     @Test
     public void itemsInTheListAreInTheSameOrderAsInParameters() throws Exception {
         final List<String> list = list("String 1", "String 2", "String 3");
+
         final Iterator<String> iterator = list.iterator();
         final String firstItem = iterator.next();
         final String secondItem = iterator.next();
         final String thirdItem = iterator.next();
+
         assertThat(firstItem, is("String 1"));
         assertThat(secondItem, is("String 2"));
         assertThat(thirdItem, is("String 3"));
