@@ -1,7 +1,9 @@
 package lists;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static litenew.Builders.list;
@@ -51,5 +53,14 @@ public class OneItemListTest {
         assertNotNull(stringList);
         assertNotNull(integerList);
         assertNotNull(booleanList);
+    }
+
+    @Test
+    public void oneItemListIsPlainArrayList() throws Exception {
+        final List<String> list = list("A");
+
+        final Class implementation = list.getClass();
+
+        assertThat(implementation, CoreMatchers.<Class>is(ArrayList.class));
     }
 }

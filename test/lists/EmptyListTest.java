@@ -1,7 +1,9 @@
 package lists;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static litenew.Builders.list;
@@ -37,12 +39,21 @@ public class EmptyListTest {
     @Test
     public void emptyListIsGeneric() throws Exception {
         final List<String> stringList = list();
-        final List<String> integerList = list();
+        final List<Integer> integerList = list();
         final List<Boolean> booleanList = list();
 
         assertNotNull(stringList);
         assertNotNull(integerList);
         assertNotNull(booleanList);
+    }
+
+    @Test
+    public void emptyListIsPlainArrayList() throws Exception {
+        final List<String> list = list();
+
+        final Class implementation = list.getClass();
+
+        assertThat(implementation, CoreMatchers.<Class>is(ArrayList.class));
     }
 }
 

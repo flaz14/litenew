@@ -1,5 +1,6 @@
 package lists;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -68,5 +69,14 @@ public class MultiItemsListTest {
         assertNotNull(stringList);
         assertNotNull(integerList);
         assertNotNull(booleanList);
+    }
+
+    @Test
+    public void multipleItemListIsPlainArrayList() throws Exception {
+        final List<String> list = list("a", "b", "c");
+
+        final Class implementation = list.getClass();
+
+        assertThat(implementation, CoreMatchers.<Class>is(ArrayList.class));
     }
 }

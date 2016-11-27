@@ -27,15 +27,22 @@ import java.util.Set;
 public class Builders {
 
     /**
-     * Creates empty list. But returned list is not equal to {@link java.util.Collections#emptyList()} (items can be
-     * added to the list later).
+     * Creates empty list. Returned list is plain {@link java.util.ArrayList}. So items can be added to the list later.
      */
     public static <T> List<T> list() {
         return new ArrayList<T>();
     }
 
+    /**
+     * Creates list that contains given items. This method is similar to {@link Builders#list()}.
+     */
     public static <T> List<T> list(final T... items) {
-        return new ArrayList<T>(Arrays.asList(items));
+        // `Arrays.asList()` is great. But that method returns very specific list. For example, it's impossible to add
+        // items into such list later. Perhaps, it will be better to return well-known `ArrayList`.
+        final List<T> plainList = new ArrayList<T>();
+        for (final T item : items)
+            plainList.add(item);
+        return plainList;
     }
 
     /**
